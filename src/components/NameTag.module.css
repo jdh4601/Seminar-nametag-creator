@@ -1,0 +1,65 @@
+/* src/components/NameTag.module.css */
+.tag {
+  width: 239px;
+  height: 319px;
+  position: relative;
+  background-image: url('/background.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #000;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.header {
+  position: absolute;
+  top: 17px;
+  left: 17px;
+}
+
+.seminarLabel {
+  color: #ccc;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 4px 0;
+}
+
+.meetOne {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin: 0;
+  line-height: 1;
+}
+
+.nameBox {
+  position: absolute;
+  /* Place over the white box area in the background image */
+  top: 72%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 205px;
+  min-height: 90px;
+  background: #fff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  box-sizing: border-box;
+}
+
+.name {
+  color: #000;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.1;
+  word-break: keep-all;
+  white-space: pre-wrap;
+}
+
+/* Footer removed per spec */

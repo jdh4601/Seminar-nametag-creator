@@ -1,0 +1,27 @@
+/* src/components/A4Page.module.css */
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: white;
+  box-sizing: border-box;
+  padding: 10mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  page-break-after: always;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 239px);
+  grid-template-rows: repeat(3, 319px);
+  gap: 0;
+}
+
+@media print {
+  .page {
+    margin: 0;
+    box-shadow: none;
+    border: none;
+  }
+}

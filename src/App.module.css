@@ -1,0 +1,118 @@
+.container {
+  background: #1a1a1a;
+  min-height: 100vh;
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 24px;
+  background: #0a0a0a;
+  border-bottom: 1px solid #333;
+}
+
+.info {
+  color: #ccc;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.progress {
+  color: #a78bfa;
+  font-size: 13px;
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.resetBtn {
+  padding: 8px 16px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  background: transparent;
+  color: #ccc;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.resetBtn:hover {
+  background: #333;
+}
+
+.resetBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.printBtn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #7c3aed;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.printBtn:hover {
+  background: #6d28d9;
+}
+
+.printBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.exportBtn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #a78bfa;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.exportBtn:hover {
+  background: #8b6ff0;
+}
+
+.exportBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 32px;
+}
+
+@media print {
+  .toolbar {
+    display: none;
+  }
+
+  .container {
+    background: white;
+  }
+
+  .preview {
+    padding: 0;
+    gap: 0;
+  }
+}
