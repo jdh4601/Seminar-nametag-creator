@@ -2,17 +2,18 @@ import { useState } from 'react';
 
 import { FileUpload } from './components/FileUpload';
 import { A4Page } from './components/A4Page';
-import { chunkNames } from './utils/parseExcel';
+import { chunkEntries, distributeThemes, type NameEntry } from './utils/parseExcel';
 import { exportToPdf } from './utils/exportPdf';
 import styles from './App.module.css';
 
 function App() {
-  const [pages, setPages] = useState<string[][] | null>(null);
+  const [pages, setPages] = useState<NameEntry[][] | null>(null);
   const [exporting, setExporting] = useState(false);
   const [progress, setProgress] = useState('');
 
-  const handleNames = (names: string[]) => {
-    setPages(chunkNames(names, 9));
+  const handleNames = (names: string[], themeCount: number) => {
+    const assigned = distributeThemes(names, themeCount);
+    setPages(chunkEntries(assigned, 9));
   };
 
   const handleExport = async () => {

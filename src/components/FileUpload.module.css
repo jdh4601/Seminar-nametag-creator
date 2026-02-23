@@ -21,6 +21,29 @@
   margin: -16px 0 0 0;
 }
 
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: -8px;
+  gap: 12px;
+}
+
+.controls label {
+  color: #ddd;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controls select {
+  background: #111;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
 .dropZone {
   width: 400px;
   height: 200px;

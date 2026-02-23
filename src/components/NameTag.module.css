@@ -1,16 +1,33 @@
 /* src/components/NameTag.module.css */
 .tag {
-  width: 239px;
-  height: 319px;
+  width: 264px;
+  height: 349px;
   position: relative;
-  background-image: url('/background.png');
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
   background-color: #000;
   overflow: hidden;
   box-sizing: border-box;
 }
+
+.tag::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Use SVG backgrounds from src/img */
+  background-image: var(--bg, url('../img/green.svg'));
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: var(--tint, none);
+}
+
+/* Theme backgrounds: explicit assets for first two cards */
+.theme0 { --bg: url('../img/red.svg'); --tint: none; }
+.theme1 { --bg: url('../img/yellow.svg'); --tint: none; }
+.theme2 { --bg: url('../img/green.svg'); --tint: none; }
+/* 4th theme: white */
+.theme3 { --bg: url('../img/white.svg'); --tint: none; }
+/* 5th theme: bluegreen */
+.theme4 { --bg: url('../img/bluegreen.svg'); --tint: none; }
 
 .header {
   position: absolute;
@@ -39,17 +56,17 @@
 .nameBox {
   position: absolute;
   /* Place over the white box area in the background image */
-  top: 72%;
+  top: 73%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 205px;
-  min-height: 90px;
+  width: 220px;
+  min-height: 105px;
   background: #fff;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 18px;
+  padding: 16px 18px;
   box-sizing: border-box;
 }
 

@@ -59,12 +59,28 @@ export function parseNames(file: File): Promise<string[]> {
   });
 }
 
-export function chunkNames(names: string[], size = 9): string[][] {
-  const pages: string[][] = [];
-  for (let i = 0; i < names.length; i += size) {
-    pages.push(names.slice(i, i + size));
+export type NameEntry = { name: string; theme: number };
+
+export function chunkEntries<T>(arr: T[], size = 9): T[][] {
+  const pages: T[][] = [];
+  for (let i = 0; i < arr.length; i += size) {
+    pages.push(arr.slice(i, i + size));
   }
   return pages;
+}
+
+export function distributeThemes(names: string[], themeCount: number): NameEntry[] {
+  // Shuffle to avoid large blocks of the same theme
+  const shuffled = [...names];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled.map((name, idx) => ({
+    name,
+    theme: themeCount > 0 ? idx % themeCount : 0,
+  }));
 }
 
 export function getFontSize(name: string): number {

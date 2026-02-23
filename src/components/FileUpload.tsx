@@ -4,13 +4,15 @@ import { parseNames } from '../utils/parseExcel';
 import styles from './FileUpload.module.css';
 
 interface FileUploadProps {
-  onNames: (names: string[]) => void;
+  onNames: (names: string[], themeCount: number) => void;
 }
 
 export function FileUpload({ onNames }: FileUploadProps) {
+  const AVAILABLE_THEMES = 5; // red, yellow, green, white, bluegreen
   const [dragOver, setDragOver] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [themeCount, setThemeCount] = useState(AVAILABLE_THEMES >= 1 ? 1 : 0);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFile = async (file: File) => {
@@ -24,7 +26,7 @@ export function FileUpload({ onNames }: FileUploadProps) {
 
     try {
       const names = await parseNames(file);
-      onNames(names);
+      onNames(names, themeCount);
     } catch (err) {
       setError(err instanceof Error ? err.message : '알 수 없는 오류');
     } finally {
@@ -48,6 +50,20 @@ export function FileUpload({ onNames }: FileUploadProps) {
     <div className={styles.wrapper}>
       <h1 className={styles.title}>D.ONE SEMINAR</h1>
       <p className={styles.subtitle}>이름표 자동 생성기</p>
+
+      <div className={styles.controls}>
+        <label>
+          색상 개수 (최대 {AVAILABLE_THEMES})
+          <select
+            value={themeCount}
+            onChange={(e) => setThemeCount(Math.min(parseInt(e.target.value, 10), AVAILABLE_THEMES))}
+          >
+            {Array.from({ length: AVAILABLE_THEMES }, (_, i) => i + 1).map((n) => (
+              <option key={n} value={n}>{n}</option>
+            ))}
+          </select>
+        </label>
+      </div>
 
       <div
         className={`${styles.dropZone} ${dragOver ? styles.dragOver : ''}`}

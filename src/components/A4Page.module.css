@@ -4,7 +4,8 @@
   height: 297mm;
   background: white;
   box-sizing: border-box;
-  padding: 10mm;
+  /* 좌우 0, 상하 10mm */
+  padding: 10mm 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,8 +14,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 239px);
-  grid-template-rows: repeat(3, 319px);
+  grid-template-columns: repeat(3, 264px);
+  grid-template-rows: repeat(3, 349px);
   gap: 0;
 }
 
