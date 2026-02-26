@@ -2,10 +2,10 @@ import styles from './NameTag.module.css';
 
 function getFontSize(name: string): number {
   const len = name.trim().length;
-  if (len <= 2) return 40;
-  if (len <= 4) return 34;
-  if (len <= 7) return 24;
-  return 19;
+  if (len <= 2) return 52;
+  if (len <= 4) return 44;
+  if (len <= 7) return 31;
+  return 25;
 }
 
 interface NameTagProps {

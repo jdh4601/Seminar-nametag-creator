@@ -13,7 +13,7 @@ function App() {
 
   const handleNames = (names: string[], themeCount: number) => {
     const assigned = distributeThemes(names, themeCount);
-    setPages(chunkEntries(assigned, 9));
+    setPages(chunkEntries(assigned, 4));
   };
 
   const handleExport = async () => {

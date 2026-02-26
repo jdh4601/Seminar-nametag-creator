@@ -1,7 +1,7 @@
 /* src/components/NameTag.module.css */
 .tag {
-  width: 264px;
-  height: 349px;
+  width: 90mm;
+  height: 120mm;
   position: relative;
   background-color: #000;
   overflow: hidden;
@@ -59,14 +59,14 @@
   top: 73%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 220px;
-  min-height: 105px;
+  width: 83%;
+  min-height: 36mm;
   background: #fff;
-  border-radius: 12px;
+  border-radius: 4mm;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 18px;
+  padding: 5mm 6mm;
   box-sizing: border-box;
 }
 

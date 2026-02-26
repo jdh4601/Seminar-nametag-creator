@@ -14,8 +14,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 264px);
-  grid-template-rows: repeat(3, 349px);
+  grid-template-columns: repeat(2, 90mm);
+  grid-template-rows: repeat(2, 120mm);
   gap: 0;
 }
 
